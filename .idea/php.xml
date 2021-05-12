@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="PhpCodeSniffer">
+    <phpcs_settings>
+      <PhpCSConfiguration standards="MySource;PEAR;PHPCS;PSR1;PSR2;Security;Squiz;Zend" tool_path="C:/wamp/bin/php/php7.1.8/phpcs" />
+    </phpcs_settings>
+  </component>
+</project>
