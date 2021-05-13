@@ -1,13 +1,15 @@
 import * as React from 'react';
 import PostIcon from '@material-ui/icons/Book';
 import UserIcon from '@material-ui/icons/Group';
-import { Admin, Resource, ListGuesser } from 'react-admin';
+import { Admin, Resource } from 'react-admin';
 import jsonServerProvider from 'ra-data-json-server';
 
 import { PostList, PostEdit, PostCreate, PostShow } from './posts';
 import { UserList } from './users';
 import Dashboard from './Dashboard';
 import authProvider from './authProvider';
+import {CommentEdit, CommentList, CommentShow} from "./comments";
+import {AlbumList, AlbumShow} from "./albums";
 //import dataProvider from "./dataProvider";
 
 const dataProvider = jsonServerProvider('https://jsonplaceholder.typicode.com');
@@ -15,6 +17,7 @@ const dataProvider = jsonServerProvider('https://jsonplaceholder.typicode.com');
 const App = () => {
     return (
       <Admin
+        disableTelemetry
         dataProvider={dataProvider}
         authProvider={authProvider}
         dashboard={Dashboard}
@@ -28,7 +31,8 @@ const App = () => {
             show={PostShow}
           />
           <Resource name="users" icon={UserIcon} list={UserList}/>
-          <Resource name="comments" list={ListGuesser}/>
+          <Resource name="comments" list={CommentList} show={CommentShow} edit={CommentEdit} create={CommentEdit}/>
+          <Resource name="albums" list={AlbumList} show={AlbumShow}/>
       </Admin>
     );
 };
