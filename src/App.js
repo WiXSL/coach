@@ -8,25 +8,28 @@ import { PostList, PostEdit, PostCreate, PostShow } from './posts';
 import { UserList } from './users';
 import Dashboard from './Dashboard';
 import authProvider from './authProvider';
+//import dataProvider from "./dataProvider";
 
-const App = () => (
-    <Admin
-        dataProvider={jsonServerProvider(
-            'https://jsonplaceholder.typicode.com'
-        )}
+const dataProvider = jsonServerProvider('https://jsonplaceholder.typicode.com');
+
+const App = () => {
+    return (
+      <Admin
+        dataProvider={dataProvider}
         authProvider={authProvider}
         dashboard={Dashboard}
-    >
-        <Resource
+      >
+          <Resource
             name="posts"
             icon={PostIcon}
             list={PostList}
             edit={PostEdit}
             create={PostCreate}
             show={PostShow}
-        />
-        <Resource name="users" icon={UserIcon} list={UserList} />
-        <Resource name="comments" list={ListGuesser} />
-    </Admin>
-);
+          />
+          <Resource name="users" icon={UserIcon} list={UserList}/>
+          <Resource name="comments" list={ListGuesser}/>
+      </Admin>
+    );
+};
 export default App;
