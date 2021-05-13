@@ -4,7 +4,7 @@ import jsonServerProvider from "ra-data-json-server";
 
 const myId = 'id';
 const dbProvider = jsonServerProvider('https://jsonplaceholder.typicode.com');
-const getData = serverData =>
+const getMapedData = serverData =>
   serverData.map(record => {
       const { [myId]: id, ...restRecord } = record;
 
@@ -35,16 +35,16 @@ const dataProvider = {
     getList: (resource, params) => {
         return dbProvider.getList(resource, params)
               .then(({data, total}) => {
-                  return ({data: getData(data), total});
+                  return ({data: getMapedData(data), total});
               });
     },
     getMany: (resource, params) => {
         return dbProvider.getMany(resource, params)
-               .then(({data, total}) => ({data: getData(data), total}));
+               .then(({data, total}) => ({data: getMapedData(data), total}));
     },
     getManyReference: (resource, params) => {
         return dbProvider.getManyReference(resource, params)
-               .then(({data, total}) => ({data: getData(data), total}));
+               .then(({data, total}) => ({data: getMapedData(data), total}));
     },
     create: (resource, params) => {
         /*const {fetchJson} = fetchUtils;
