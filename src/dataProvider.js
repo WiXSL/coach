@@ -1,5 +1,5 @@
 //import qs from 'qs';
-import {fetchUtils} from 'react-admin';
+//import {fetchUtils} from 'react-admin';
 import jsonServerProvider from "ra-data-json-server";
 
 const myId = 'id';
@@ -11,7 +11,7 @@ const getData = serverData =>
       return { id, ...restRecord };
   });
 
-const getSubmitData = data => {
+/*const getSubmitData = data => {
     const formData = new FormData();
 
     Object.keys(data).forEach(field => {
@@ -25,7 +25,7 @@ const getSubmitData = data => {
     });
 
     return formData;
-};
+};*/
 
 const dataProvider = {
     getOne: (resource, params) => {
