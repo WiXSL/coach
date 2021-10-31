@@ -1,7 +1,8 @@
 {
     "name": "tutorial",
-    "version": "3.0.0",
+    "version": "3.0.1",
     "private": true,
+    "homepage": ".",
     "dependencies": {
         "@material-ui/core": "^4.11.4",
         "@material-ui/icons": "^4.11.2",
@@ -41,7 +42,7 @@
         "ra-test": "^3.15.1"
     },
     "scripts": {
-        "start": "react-scripts start",
+        "start": "react-scripts --openssl-legacy-provider start",
         "build": "react-scripts build",
         "test": "react-scripts test"
     },
