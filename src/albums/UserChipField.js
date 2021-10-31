@@ -1,17 +1,17 @@
-import React from 'react'
-import { ChipField } from 'react-admin'
-import Avatar from '@material-ui/core/Avatar'
+import React from 'react';
+import { ChipField } from 'react-admin';
+import Avatar from '@material-ui/core/Avatar';
 import { makeStyles } from '@material-ui/core/styles';
 
 const styles = {
     root: props => props.compact ? ({
-        marginLeft:  "0px !important"
+        marginLeft: '0px !important'
     }) : undefined
-}
+};
 
 const useStyles = makeStyles(styles);
 
-const UserChipField = ({ record, source = "fullName", ...props }) => {
+const UserChipField = ({ record, source = 'fullName', ...props }) => {
     const classes = useStyles(props);
 
     return (
@@ -27,7 +27,7 @@ const UserChipField = ({ record, source = "fullName", ...props }) => {
             record={record}
             {...props}
         />
-    )
-}
+    );
+};
 
-export default UserChipField
+export default UserChipField;

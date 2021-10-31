@@ -1,7 +1,16 @@
-import React from 'react'
-import { ArrayField, ChipField, Show, SimpleShowLayout, SingleFieldList, Tab, TabbedShowLayout, TextField } from 'react-admin'
-import { ShowSplitter } from 'ra-compact-ui'
-import AvatarShowField from './AvatarShowField'
+import React from 'react';
+import {
+    ArrayField,
+    ChipField,
+    Show,
+    SimpleShowLayout,
+    SingleFieldList,
+    Tab,
+    TabbedShowLayout,
+    TextField
+} from 'react-admin';
+import { ShowSplitter } from 'ra-compact-ui';
+import AvatarShowField from './AvatarShowField';
 
 const CommentShow = props => {
     return (
@@ -19,12 +28,12 @@ const CommentShow = props => {
                 // }}
                 leftSide={
                     <SimpleShowLayout>
-                        <AvatarShowField />
-                        <TextField source="full_name" />
-                        <TextField source="email" />
+                        <AvatarShowField/>
+                        <TextField source="full_name"/>
+                        <TextField source="email"/>
                         <ArrayField source="skills">
                             <SingleFieldList>
-                                <ChipField source="name" />
+                                <ChipField source="name"/>
                             </SingleFieldList>
                         </ArrayField>
                     </SimpleShowLayout>
@@ -32,7 +41,7 @@ const CommentShow = props => {
                 rightSide={
                     <TabbedShowLayout>
                         <Tab label="Overview">
-                            <TextField source="description" />
+                            <TextField source="description"/>
                         </Tab>
                         <Tab label="Albums">
                         </Tab>
@@ -40,7 +49,7 @@ const CommentShow = props => {
                 }
             />
         </Show>
-    )
-}
+    );
+};
 
-export default CommentShow
+export default CommentShow;

@@ -1,15 +1,15 @@
 //import qs from 'qs';
 //import {fetchUtils} from 'react-admin';
-import jsonServerProvider from "ra-data-json-server";
+import jsonServerProvider from 'ra-data-json-server';
 
 const myId = 'id';
 const dbProvider = jsonServerProvider('https://jsonplaceholder.typicode.com');
 const getMapedData = serverData =>
-  serverData.map(record => {
-      const { [myId]: id, ...restRecord } = record;
+    serverData.map(record => {
+        const { [myId]: id, ...restRecord } = record;
 
-      return { id, ...restRecord };
-  });
+        return { id, ...restRecord };
+    });
 
 /*const getSubmitData = data => {
     const formData = new FormData();
@@ -29,22 +29,21 @@ const getMapedData = serverData =>
 
 const dataProvider = {
     getOne: (resource, params) => {
-        return dbProvider.getOne(resource, params)
-              .then(({data}) => ({data: {id: params.data.id, ...data}}));
+        return dbProvider.getOne(resource, params).then(({ data }) => ({ data: { id: params.data.id, ...data } }));
     },
     getList: (resource, params) => {
-        return dbProvider.getList(resource, params)
-              .then(({data, total}) => {
-                  return ({data: getMapedData(data), total});
-              });
+        return dbProvider.getList(resource, params).then(({ data, total }) => {
+            return ({ data: getMapedData(data), total });
+        });
     },
     getMany: (resource, params) => {
-        return dbProvider.getMany(resource, params)
-               .then(({data, total}) => ({data: getMapedData(data), total}));
+        return dbProvider.getMany(resource, params).then(({ data, total }) => ({ data: getMapedData(data), total }));
     },
     getManyReference: (resource, params) => {
-        return dbProvider.getManyReference(resource, params)
-               .then(({data, total}) => ({data: getMapedData(data), total}));
+        return dbProvider.getManyReference(resource, params).then(({ data, total }) => ({
+            data: getMapedData(data),
+            total
+        }));
     },
     create: (resource, params) => {
         /*const {fetchJson} = fetchUtils;
@@ -54,8 +53,7 @@ const dataProvider = {
             credentials: 'include'
         });*/
 
-        return dbProvider.create(resource, params)
-               .then(() => ({data: {id: params.data.id, ...params.data}}));
+        return dbProvider.create(resource, params).then(() => ({ data: { id: params.data.id, ...params.data } }));
     },
     update: (resource, params) => {
         /*const {fetchJson} = fetchUtils;
@@ -65,20 +63,16 @@ const dataProvider = {
             credentials: 'include'
         });*/
 
-        return dbProvider.update(resource, params)
-               .then(() => ({data: {id: params.data.id, ...params.data}}));
+        return dbProvider.update(resource, params).then(() => ({ data: { id: params.data.id, ...params.data } }));
     },
     updateMany: (resource, params) => {
-        return dbProvider.updateMany(resource, params)
-               .then(({data, total}) => ({data, total}));
+        return dbProvider.updateMany(resource, params).then(({ data, total }) => ({ data, total }));
     },
     delete: (resource, params) => {
-        return dbProvider.deleteMany(resource, params)
-               .then(() => ({data: {id: params.data.id, ...params.data}}));
+        return dbProvider.deleteMany(resource, params).then(() => ({ data: { id: params.data.id, ...params.data } }));
     },
     deleteMany: (resource, params) => {
-        return dbProvider.deleteMany(resource, params)
-               .then(({data, total}) => ({data, total}));
+        return dbProvider.deleteMany(resource, params).then(({ data, total }) => ({ data, total }));
     }
 };
 

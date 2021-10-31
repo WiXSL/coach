@@ -1,48 +1,48 @@
 import * as React from 'react';
 import {
-    Show,
-    ShowButton,
-    SimpleShowLayout,
-    RichTextField,
-    DateField,
-    List,
-    Edit,
     Create,
     Datagrid,
-    ReferenceField,
-    TextField,
+    DateField,
+    Edit,
     EditButton,
-    ReferenceInput,
-    SelectInput,
-    SimpleForm,
-    TextInput,
     Filter,
+    List,
+    ReferenceField,
+    ReferenceInput,
+    RichTextField,
+    SelectInput,
+    Show,
+    ShowButton,
+    SimpleForm,
+    SimpleShowLayout,
+    TextField,
+    TextInput
 } from 'react-admin';
 
 const PostFilter = props => (
     <Filter {...props}>
-        <TextInput label="Search" source="q" alwaysOn />
+        <TextInput label="Search" source="q" alwaysOn/>
         <ReferenceInput
             label="User"
             source="userId"
             reference="users"
             allowEmpty
         >
-            <SelectInput optionText="name" />
+            <SelectInput optionText="name"/>
         </ReferenceInput>
     </Filter>
 );
 
 export const PostList = props => (
-    <List {...props} filters={<PostFilter />}>
+    <List {...props} filters={<PostFilter/>}>
         <Datagrid>
-            <TextField source="id" />
+            <TextField source="id"/>
             <ReferenceField label="User" source="userId" reference="users">
-                <TextField source="name" />
+                <TextField source="name"/>
             </ReferenceField>
-            <TextField source="title" />
-            <EditButton />
-            <ShowButton />
+            <TextField source="title"/>
+            <EditButton/>
+            <ShowButton/>
         </Datagrid>
     </List>
 );
@@ -52,14 +52,14 @@ const PostTitle = ({ record }) => {
 };
 
 export const PostEdit = props => (
-    <Edit title={<PostTitle />} {...props}>
+    <Edit title={<PostTitle/>} {...props}>
         <SimpleForm>
-            <TextInput disabled source="id" />
+            <TextInput disabled source="id"/>
             <ReferenceInput label="User" source="userId" reference="users">
-                <SelectInput optionText="name" />
+                <SelectInput optionText="name"/>
             </ReferenceInput>
-            <TextInput source="title" />
-            <TextInput multiline source="body" />
+            <TextInput source="title"/>
+            <TextInput multiline source="body"/>
         </SimpleForm>
     </Edit>
 );
@@ -68,10 +68,10 @@ export const PostCreate = props => (
     <Create {...props}>
         <SimpleForm>
             <ReferenceInput label="User" source="userId" reference="users">
-                <SelectInput optionText="name" />
+                <SelectInput optionText="name"/>
             </ReferenceInput>
-            <TextInput source="title" />
-            <TextInput multiline source="body" />
+            <TextInput source="title"/>
+            <TextInput multiline source="body"/>
         </SimpleForm>
     </Create>
 );
@@ -79,10 +79,10 @@ export const PostCreate = props => (
 export const PostShow = props => (
     <Show {...props}>
         <SimpleShowLayout>
-            <TextField source="title" />
-            <TextField source="teaser" />
-            <RichTextField source="body" />
-            <DateField label="Publication date" source="created_at" />
+            <TextField source="title"/>
+            <TextField source="teaser"/>
+            <RichTextField source="body"/>
+            <DateField label="Publication date" source="created_at"/>
         </SimpleShowLayout>
     </Show>
 );
