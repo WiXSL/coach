@@ -34,12 +34,12 @@ const PostFilter = props => (
 );
 
 export const PostList = props => (
-    <List {...props} filters={<PostFilter/>}>
+    <List {...props} /*filters={<PostFilter/>}*/>
         <Datagrid>
             <TextField source="id"/>
-            <ReferenceField label="User" source="userId" reference="users">
+            {/*<ReferenceField label="User" source="userId" reference="users">
                 <TextField source="name"/>
-            </ReferenceField>
+            </ReferenceField>*/}
             <TextField source="title"/>
             <EditButton/>
             <ShowButton/>
